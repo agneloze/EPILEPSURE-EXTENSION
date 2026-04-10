@@ -9,15 +9,17 @@ function App() {
       <nav className="navbar">
         <div className="container">
           <div className="logo">
-            <Shield size={24} color="var(--primary-color)" fill="var(--primary-color)" fillOpacity={0.1} />
-            Epilepsure
+            <img src="/logo.png" alt="Epilepsure Logo" style={{ width: '32px', height: '32px', borderRadius: '6px' }} />
+            <span>Epilepsure</span>
           </div>
           <div className="nav-links">
-            <a href="#about">The Problem</a>
-            <a href="#method">How it Works</a>
+            <a href="#science">The Science</a>
             <a href="#features">Features</a>
-            <a href="#downloads">Install</a>
+            <a href="#download">Download</a>
           </div>
+          <button className="btn btn-primary" onClick={() => document.getElementById('download').scrollIntoView({ behavior: 'smooth' })}>
+            Install Protection
+          </button>
         </div>
       </nav>
 
@@ -25,8 +27,8 @@ function App() {
       <section className="hero">
         <div className="container">
           <div className="hero-pill">
-            <Zap size={14} fill="currentColor" />
-            Harding Test Compliant Detection
+            <img src="/logo.png" alt="" style={{ width: '16px', height: '16px', borderRadius: '3px' }} />
+            <span>Protecting over 1,200+ users worldwide</span>
           </div>
           <h1>Make the internet safer<br />for photosensitive users.</h1>
           <p>
@@ -195,9 +197,9 @@ function App() {
       {/* Footer */}
       <footer>
         <div className="container">
-          <div className="logo">
-            <Shield size={24} color="var(--primary-color)" fill="var(--primary-color)" fillOpacity={0.1} />
-            Epilepsure
+          <div className="logo" style={{ justifyContent: 'center' }}>
+            <img src="/logo.png" alt="Epilepsure Logo" style={{ width: '24px', height: '24px', borderRadius: '4px' }} />
+            <span>Epilepsure</span>
           </div>
           <div className="footer-links">
             <a href="https://github.com/agneloze/EPILEPSURE-EXTENSION" target="_blank" rel="noopener noreferrer">GitHub Project</a>

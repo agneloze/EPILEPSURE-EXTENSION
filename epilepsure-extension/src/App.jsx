@@ -39,7 +39,7 @@ function App() {
         <header>
           <div className="logo">
              <div className="icon-pulse">
-                <span className="icon">🛡️</span>
+                <img src="/logo.png" alt="" style={{ width: '24px', height: '24px', borderRadius: '4px' }} />
              </div>
              <h1>Epilepsure</h1>
           </div>
