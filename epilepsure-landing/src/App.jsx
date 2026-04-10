@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Info, Activity, Monitor, Smartphone, Download, Chrome, Zap } from 'lucide-react';
+import { Shield, Info, Activity, Monitor, Smartphone, Download, Globe, Zap } from 'lucide-react';
 import './index.css';
 
 function App() {
@@ -117,7 +117,7 @@ function App() {
           </div>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon"><Chrome size={24} /></div>
+              <div className="feature-icon"><Globe size={24} /></div>
               <h3>Browser Integrated</h3>
               <p>Built for Chromium-based browsers (Chrome, Edge, Brave). Zero setup required after installation.</p>
             </div>
@@ -143,7 +143,7 @@ function App() {
           
           <div className="downloads-grid">
             <div className="download-card" style={{ backgroundColor: 'var(--bg-card)' }}>
-              <Chrome size={40} color="var(--primary-color)" />
+              <Globe size={40} color="var(--primary-color)" />
               <h4>Chrome Extension</h4>
               <p>Standard protection for YouTube and web video platforms.</p>
               <a href="/epilepsure-extension-v1.zip" download className="btn btn-primary" style={{ width: '100%' }}>
