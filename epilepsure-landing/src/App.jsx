@@ -1,47 +1,50 @@
 import React from 'react';
-import { Shield, Info, Activity, Monitor, Smartphone, Download, Globe, Zap, CheckCircle2, AlertTriangle, Cpu } from 'lucide-react';
+import { Shield, Info, Activity, Monitor, Smartphone, Download, Chrome, Zap } from 'lucide-react';
 import './index.css';
 
 function App() {
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="app">
       {/* Navbar */}
       <nav className="navbar">
         <div className="container">
-          <div className="logo">
-            <img src="/logo.png" alt="Epilepsure Logo" style={{ width: '32px', height: '32px', borderRadius: '6px' }} />
+          <div className="logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ cursor: 'pointer' }}>
+            <img src="/logo.png" alt="Epilepsure Logo" style={{ width: '32px', height: '32px', borderRadius: '4px' }} />
             <span>Epilepsure</span>
           </div>
           <div className="nav-links">
-            <a href="#science">The Science</a>
-            <a href="#features">Features</a>
-            <a href="#download">Download</a>
+            <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>About</a>
+            <a href="#science" onClick={(e) => { e.preventDefault(); scrollTo('science'); }}>The Science</a>
+            <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }}>Features</a>
+            <a href="#downloads" onClick={(e) => { e.preventDefault(); scrollTo('downloads'); }}>Download</a>
           </div>
-          <button className="btn btn-primary" onClick={() => document.getElementById('download').scrollIntoView({ behavior: 'smooth' })}>
-            Install Protection
+          <button className="btn btn-primary" onClick={() => scrollTo('downloads')}>
+            Get Started
           </button>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="hero">
-        <div className="container">
-          <div className="hero-pill">
-            <img src="/logo.png" alt="" style={{ width: '16px', height: '16px', borderRadius: '3px' }} />
-            <span>Protecting over 1,200+ users worldwide</span>
-          </div>
-          <h1>Make the internet safer<br />for photosensitive users.</h1>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <div className="hero-pill">Harding Test Compliant Detection</div>
+          <h1 style={{ color: 'var(--text-primary)' }}>Make the internet safer<br />for photosensitive users.</h1>
           <p>
-            An automated trigger warning system that detects bright flickering lights and saturated red flashes on social media.
+            An automated trigger warning system that detects bright flickering lights and saturated red flashes in real-time.
           </p>
           <div className="hero-actions">
-            <a href="#downloads" className="btn btn-primary">
+            <button onClick={() => scrollTo('downloads')} className="btn btn-primary">
               <Download size={20} />
-              Get the Extension
-            </a>
-            <a href="#about" className="btn btn-outline">
+              Install Protection
+            </button>
+            <button onClick={() => scrollTo('about')} className="btn btn-outline">
               Learn the Science
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -50,142 +53,118 @@ function App() {
       <section id="about" className="info-section">
         <div className="container info-grid">
           <div className="info-content">
-            <h2>The Risk of Autoplay</h2>
+            <h2 style={{ color: 'var(--text-primary)' }}>The Problem with Autoplay</h2>
             <p>
-              For individuals with photosensitive epilepsy, daily internet use is a minefield. Modern social media feeds are optimized for engagement, often leading to content with high-frequency strobes, flash photography, or provocative visual patterns.
+              For individuals with photosensitive epilepsy, navigating modern social media is a risk. Platforms like YouTube and Instagram are filled with high-frequency flashes andProvocative patterns.
             </p>
             <p>
-              Without automated intervention, a single autoplaying video can trigger a seizure before the user has time to look away or close the page.
+              <strong>Epilepsure</strong> acts as your digital shield. Our algorithm uses localized frame analysis to intervene within milliseconds, ensuring you stay safe without sacrificing your browsing experience.
             </p>
-            <div style={{ marginTop: '2rem', display: 'flex', gap: '2rem' }}>
-              <div>
-                <h4 style={{ color: 'var(--alert-color)', fontSize: '2rem' }}>3%</h4>
-                <p style={{ fontSize: '0.875rem' }}>of people with epilepsy are photosensitive</p>
-              </div>
-              <div>
-                <h4 style={{ color: 'var(--primary-color)', fontSize: '2rem' }}>&lt;50ms</h4>
-                <p style={{ fontSize: '0.875rem' }}>Detection latency in browsers</p>
-              </div>
-            </div>
           </div>
-          <div className="problem-card">
-            <h3>Common Risk Factors</h3>
-            <ul className="trigger-list">
-              <li className="trigger-item">
-                <div className="trigger-dot" />
-                <div>
-                  <strong>High Frequency Stroboscopic Effects</strong>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>More than 3 flashes within a one-second window.</p>
-                </div>
+          <div className="problem-card" style={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)' }}>
+            <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'var(--text-primary)' }}>
+              <Activity size={24} color="var(--primary-color)" />
+              Safety Thresholds
+            </h3>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', list-style: 'none' }}>
+              <li style={{ display: 'flex', gap: '1rem' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--primary-color)', marginTop: '0.6rem' }} />
+                <p><strong>Flicker Rate:</strong> Detection of sequences with >3 flashes per second.</p>
               </li>
-              <li className="trigger-item">
-                <div className="trigger-dot" style={{ backgroundColor: 'var(--alert-color)' }} />
-                <div>
-                  <strong>Provocative Red Transitions</strong>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Saturated red flashes are statistically more likely to trigger cortical excitation.</p>
-                </div>
-              </li>
-              <li className="trigger-item">
-                <div className="trigger-dot" style={{ backgroundColor: '#64748b' }} />
-                <div>
-                  <strong>Spatial Pattern Provocation</strong>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>High-contrast stripes or geometric patterns that flicker during scrolling.</p>
-                </div>
+              <li style={{ display: 'flex', gap: '1rem' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--alert-color)', marginTop: '0.6rem' }} />
+                <p><strong>Red Delta:</strong> Monitoring for sudden red-saturation shifts that provoke excitation.</p>
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* How it Works / The Science */}
-      <section id="method" className="features" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color)' }}>
-        <div className="container">
-          <div className="features-header">
-            <h2>The Science of Protection</h2>
-            <p style={{ maxWidth: '700px', margin: '0 auto' }}>
-              Epilepsure implements a localized version of the ITU-R BT.1702 recommendation, commonly known as the Harding Test.
-            </p>
-          </div>
+      {/* The Science / Harding Test */}
+      <section id="science" className="info-section" style={{ borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', backgroundColor: 'var(--bg-main)' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)' }}>The Science of Protection</h2>
+          <p style={{ maxWidth: '800px', margin: '0 auto 3rem', color: 'var(--text-secondary)' }}>
+            Epilepsure implements a localized version of the <strong>ITU-R BT.1702</strong> recommendation, commonly known as the <strong>Harding Test</strong>. 
+            This standard ensures that photosensitive viewers are protected from hazardous luminance fluctuations and saturated red flickers.
+          </p>
           <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon"><Cpu size={24} /></div>
-              <h3>Real-time Analysis</h3>
-              <p>The system samples video frames 30 times per second using a hidden canvas, calculating the relative luminance of every frame locally on your device.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon"><Activity size={24} /></div>
-              <h3>Frequency Tracking</h3>
-              <p>A rolling buffer tracks the mathematical delta between frames. If the pattern matches a "dangerous sequence" (rapid luminance oscillation), the shield activates.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon"><Shield size={24} /></div>
-              <h3>Automatic Intervention</h3>
-              <p>The video is instantly blured and paused. You are presented with a clear warning and must manually choose to "Reveal Video" to continue.</p>
-            </div>
+             <div className="feature-card">
+                <Zap size={24} color="var(--primary-color)" style={{ marginBottom: '1rem' }} />
+                <h3>Luminance Deltas</h3>
+                <p>We analyze the mathematical difference in brightness between consecutive frames in real-time.</p>
+             </div>
+             <div className="feature-card">
+                <Activity size={24} color="var(--primary-color)" style={{ marginBottom: '1rem' }} />
+                <h3>Frequency Check</h3>
+                <p>Our rolling buffer confirms if the flicker frequency exceeds safe biological limits (3Hz to 30Hz).</p>
+             </div>
+             <div className="feature-card">
+                <Shield size={24} color="var(--primary-color)" style={{ marginBottom: '1rem' }} />
+                <h3>Instant Intervention</h3>
+                <p>If risk is detected, the video is instantly blurred and paused before a seizure can be triggered.</p>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Features */}
+      {/* Features */}
       <section id="features" className="features">
         <div className="container">
           <div className="features-header">
-            <h2>Browser Integrated</h2>
-            <p>Built for the modern web with performance and privacy at its core.</p>
+            <h2 style={{ color: 'var(--text-primary)' }}>Privacy & Performance</h2>
+            <p style={{ color: 'var(--text-secondary)' }}>Designed to protect you without slowing down your browser.</p>
           </div>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon"><Globe size={24} /></div>
-              <h3>YouTube Optimized</h3>
-              <p>Deep integration with the YouTube player ensures detection works across shorts, livestreams, and standard video uploads.</p>
+              <div className="feature-icon"><Chrome size={24} /></div>
+              <h3>Browser Integrated</h3>
+              <p>Built for Chromium-based browsers (Chrome, Edge, Brave). Zero setup required after installation.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon"><Info size={24} /></div>
-              <h3>Privacy-First</h3>
-              <p>All video analysis happens inside your browser. No data is sent to our servers, and your watch history remains completely private.</p>
+              <div className="feature-icon"><Shield size={24} /></div>
+              <h3>Local Processing</h3>
+              <p>Analysis happens locally on your machine. Your camera, screen, and data never leave your device.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon"><CheckCircle2 size={24} /></div>
-              <h3>Zero Latency</h3>
-              <p>Optimized algorithms ensure that the extension doesn't slow down your browsing or cause video buffering.</p>
+              <div className="feature-icon"><Monitor size={24} /></div>
+              <h3>Smart Overlays</h3>
+              <p>Warnings appear exactly where you need them, providing a safe bridge to override if you choose.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Downloads Section */}
-      <section id="downloads" className="downloads">
+      <section id="downloads" className="downloads" style={{ backgroundColor: 'var(--bg-main)' }}>
         <div className="container">
-          <h2>Install Protection</h2>
-          <p style={{ color: 'var(--text-secondary)' }}>Free, open-source, and ready to protect.</p>
+          <h2 style={{ color: 'var(--text-primary)' }}>Install Protection</h2>
+          <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Deploy the shield to your system.</p>
           
           <div className="downloads-grid">
-            {/* Chrome Extension */}
-            <div className="download-card">
-              <Globe size={40} color="var(--primary-color)" />
-              <h4>Browser Extension</h4>
-              <p>Currently available for Chrome and Edge. Works on YouTube PC via developer mode.</p>
+            <div className="download-card" style={{ backgroundColor: 'var(--bg-card)' }}>
+              <Chrome size={40} color="var(--primary-color)" />
+              <h4>Chrome Extension</h4>
+              <p>Standard protection for YouTube and web video platforms.</p>
               <a href="/epilepsure-extension-v1.zip" download className="btn btn-primary" style={{ width: '100%' }}>
                 <Download size={18} />
                 Download v1.0
               </a>
             </div>
 
-            {/* Windows Desktop */}
-            <div className="download-card">
-              <Monitor size={40} color="#94a3b8" />
+            <div className="download-card" style={{ backgroundColor: 'var(--bg-card)' }}>
+              <Monitor size={40} color="var(--text-secondary)" />
               <h4>Windows Desktop</h4>
-              <p>System-wide protection for apps and gaming. Coming soon to the Microsoft Store.</p>
+              <p>System-wide protection for apps and gaming. Coming in 2026.</p>
               <button className="btn btn-disabled" style={{ width: '100%' }} disabled>
                 Coming 2026
               </button>
             </div>
 
-            {/* Mobile App */}
-            <div className="download-card">
-              <Smartphone size={40} color="#94a3b8" />
+            <div className="download-card" style={{ backgroundColor: 'var(--bg-card)' }}>
+              <Smartphone size={40} color="var(--text-secondary)" />
               <h4>Mobile App</h4>
-              <p>Integrated protection for Instagram and TikTok feeds. Currently in Beta testing.</p>
+              <p>Integrated protection for the iOS/Android apps. Coming in 2026.</p>
               <button className="btn btn-disabled" style={{ width: '100%' }} disabled>
                 Coming 2026
               </button>
@@ -197,16 +176,11 @@ function App() {
       {/* Footer */}
       <footer>
         <div className="container">
-          <div className="logo" style={{ justifyContent: 'center' }}>
-            <img src="/logo.png" alt="Epilepsure Logo" style={{ width: '24px', height: '24px', borderRadius: '4px' }} />
-            <span>Epilepsure</span>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+            <img src="/logo.png" alt="" style={{ width: '24px', height: '24px', borderRadius: '4px' }} />
+            <span style={{ fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>Epilepsure</span>
           </div>
-          <div className="footer-links">
-            <a href="https://github.com/agneloze/EPILEPSURE-EXTENSION" target="_blank" rel="noopener noreferrer">GitHub Project</a>
-            <a href="#about">Privacy Policy</a>
-            <a href="mailto:support@epilepsure.com">Report a Bug</a>
-          </div>
-          <p>&copy; {new Date().getFullYear()} Epilepsure Open Source Project. Documentation-first approach.</p>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>&copy; {new Date().getFullYear()} Epilepsure. An open-source digital accessibility project.</p>
         </div>
       </footer>
     </div>
@@ -214,4 +188,3 @@ function App() {
 }
 
 export default App;
-
