@@ -175,7 +175,7 @@ function App() {
               <h4>Windows Desktop</h4>
               <p>System-wide protection for apps and gaming. Coming soon to the Microsoft Store.</p>
               <button className="btn btn-disabled" style={{ width: '100%' }} disabled>
-                Coming Q4 2024
+                Coming 2026
               </button>
             </div>
 
@@ -185,7 +185,7 @@ function App() {
               <h4>Mobile App</h4>
               <p>Integrated protection for Instagram and TikTok feeds. Currently in Beta testing.</p>
               <button className="btn btn-disabled" style={{ width: '100%' }} disabled>
-                Join Waitlist
+                Coming 2026
               </button>
             </div>
           </div>
