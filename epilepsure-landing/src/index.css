@@ -184,7 +184,7 @@ a {
 /* Info Section */
 .info-section {
   padding: 4rem 0;
-  background-color: #ffffff;
+  background-color: var(--bg-main);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
@@ -252,12 +252,13 @@ a {
   width: 48px;
   height: 48px;
   border-radius: 0.5rem;
-  background-color: #eff6ff;
+  background-color: var(--bg-main);
   color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
 }
 
 .feature-card h3 {
@@ -271,7 +272,7 @@ a {
 
 /* Download Section */
 .downloads {
-  background-color: #ffffff;
+  background-color: var(--bg-main);
   padding: 4rem 0;
   text-align: center;
   border-top: 1px solid var(--border-color);
